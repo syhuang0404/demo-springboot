@@ -1,4 +1,4 @@
-package com.sample.demo.model.repo;
+package com.sample.demo.model.response;
 
 import java.util.List;
 

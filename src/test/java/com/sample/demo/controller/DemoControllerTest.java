@@ -22,8 +22,8 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.sample.demo.model.repo.DemoResponse;
 import com.sample.demo.model.entity.Book;
+import com.sample.demo.model.response.DemoResponse;
 import com.sample.demo.service.DataService;
 
 @SpringBootTest

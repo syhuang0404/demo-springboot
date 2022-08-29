@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sample.demo.model.entity.Book;
-import com.sample.demo.model.repo.DemoResponse;
+import com.sample.demo.model.response.DemoResponse;
 import com.sample.demo.service.DataService;
 
 import io.swagger.v3.oas.annotations.Operation;
