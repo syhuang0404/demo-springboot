@@ -33,6 +33,9 @@ class DataServiceImplTest {
     @Test
     void shouldReturnInsertBookSuccess() {
         Book book = new Book();
+        // Mock
+        Mockito.when(bookDao.save(book)).thenReturn(book);
+        
         dataService.insertBook(book);
         verify(bookDao, times(1)).save(book);
     }
@@ -46,7 +49,9 @@ class DataServiceImplTest {
     	book.setUpdatedTime(updatedTime);
         
         // Mock
-        Mockito.when(bookDao.selectBookById(1)).thenReturn(book);        
+        Mockito.when(bookDao.selectBookById(1)).thenReturn(book);
+        Mockito.doNothing().when(bookDao).updateBookById(Mockito.any(), Mockito.any(), Mockito.any());
+        
         dataService.updateBookById(1, book);
         verify(bookDao, times(1)).updateBookById(Mockito.any(), Mockito.any(), Mockito.any());
     }
@@ -60,13 +65,18 @@ class DataServiceImplTest {
     	book.setUpdatedTime(updatedTime);
         
         // Mock
-        Mockito.when(bookDao.selectBookById(1)).thenReturn(null);        
+        Mockito.when(bookDao.selectBookById(1)).thenReturn(null);
+        Mockito.doNothing().when(bookDao).updateBookById(Mockito.any(), Mockito.any(), Mockito.any());
+        
         dataService.updateBookById(1, book);
         verify(bookDao, times(0)).updateBookById(Mockito.any(), Mockito.any(), Mockito.any());
     }
 
     @Test
     void shouldReturnDeleteBookByIdSuccess() {
+    	// Mock
+        Mockito.doNothing().when(bookDao).deleteById(1);
+        
         dataService.deleteBookById(1);
         verify(bookDao, times(1)).deleteById(1);
     }
